@@ -62,9 +62,6 @@ PRINCIPAL:
 	    
 ;**************RUTINA***********************	    
 	RUTINA
-	    MOVLW   0X20
-	    MOVWF   PORTC
-	    MOVWF   PORTB
 	    CLRF    PORTC
 	    CLRF    PORTB      
 	    MOVLW   .8 

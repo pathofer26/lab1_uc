@@ -7,7 +7,6 @@
       <itemPath>p16f887.inc</itemPath>
       <itemPath>Retardos.inc</itemPath>
       <itemPath>config.inc</itemPath>
-      <itemPath>Retardos_2017.inc</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
