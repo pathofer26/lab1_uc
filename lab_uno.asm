@@ -72,8 +72,7 @@ BUCLE1	    BSF	    STATUS,C
 	    DECFSZ  CUENTA1,1 
 	    GOTO    BUCLE1 
 	    MOVLW   .8 
-	    MOVWF   CUENTA1 
-	    GOTO    BUCLE2 
+	    MOVWF   CUENTA1  
 BUCLE2	    BSF STATUS,C 
 	    RRF PORTB,1  ;RRF
 	    CALL    Retardo_500ms 
@@ -81,7 +80,6 @@ BUCLE2	    BSF STATUS,C
 	    GOTO BUCLE2 
 	    MOVLW .8 
 	    MOVWF   CUENTA1 
-	    GOTO    BUCLE3
 BUCLE3	    BCF STATUS,C 
 	    RLF PORTB,1  ;RLF
 	    CALL    Retardo_500ms 
@@ -89,7 +87,6 @@ BUCLE3	    BCF STATUS,C
 	    GOTO BUCLE3
 	    MOVLW .4 
 	    MOVWF   CUENTA1 
-	    GOTO    BUCLE4
 BUCLE4	    BCF STATUS,C 
 	    RLF PORTC,1  ;RLF
 	    CALL    Retardo_500ms 
