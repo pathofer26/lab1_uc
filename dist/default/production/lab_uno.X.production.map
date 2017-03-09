@@ -1,11 +1,11 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Mar 08 09:53:04 2017
+Linker Map File - Created Wed Mar 08 13:28:03 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x0001a2
-                   .cinit    romdata   0x0000d1    program   0x000004
+                   .org_0       code   0x000000    program   0x00019c
+                   .cinit    romdata   0x0000ce    program   0x000004
 .config_2007_BUILD/DEFAULT/PRODUCTION/LAB_UNO       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/LAB_UNO       code   0x002008    program   0x000002
 
@@ -14,9 +14,9 @@ Linker Map File - Created Wed Mar 08 09:53:04 2017
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0000d2      
+                            0x000000    0x0000cf      
                             0x002007    0x002008      
-            213 out of 8455 program addresses used, program memory utilization is 2%
+            210 out of 8455 program addresses used, program memory utilization is 2%
 
 
 
@@ -24,59 +24,59 @@ Linker Map File - Created Wed Mar 08 09:53:04 2017
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                    BUCLE1   0x00001e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE2   0x000026    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE3   0x00002e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE4   0x000036    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+                   BUCLE2   0x000025    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+                   BUCLE3   0x00002c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+                   BUCLE4   0x000033    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
                    CONTEO   0x000005    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                      DOS   0x0000c8    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                     HEX1   0x000053    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-                     HEX2   0x00005a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-                  HEX_BCD   0x00004b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                      DOS   0x0000c5    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                     HEX1   0x000050    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                     HEX2   0x000057    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                  HEX_BCD   0x000048    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
                    INICIO   0x000000    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                    LOOP1   0x0000ac    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP11   0x0000b9    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                    LOOP2   0x0000ae    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP22   0x0000bb    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                    LOOP3   0x0000b0    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP33   0x0000bd    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP1   0x0000a9    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP11   0x0000b6    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP2   0x0000ab    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP22   0x0000b8    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP3   0x0000ad    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP33   0x0000ba    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
                 PRINCIPAL   0x000003    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-    R1Decima_BucleExterno   0x0000a0    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-   R1Decima_BucleExterno2   0x00009e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-    R1Decima_BucleInterno   0x0000a2    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        R1ms_BucleExterno   0x00008a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        R1ms_BucleInterno   0x00008c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                  RETARDO   0x0000c4    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                 RET_10MS   0x0000b7    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+    R1Decima_BucleExterno   0x00009d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+   R1Decima_BucleExterno2   0x00009b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+    R1Decima_BucleInterno   0x00009f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        R1ms_BucleExterno   0x000087    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        R1ms_BucleInterno   0x000089    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                  RETARDO   0x0000c1    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                 RET_10MS   0x0000b4    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
                    RUTINA   0x00001a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-            RetardoMicros   0x000076    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_100micros   0x000070    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_100ms   0x00007c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-         Retardo_10micros   0x000063    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_10ms   0x000082    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_10s   0x000094    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_1Decima   0x00009d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_1ms   0x000088    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_1s   0x00009a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_200micros   0x00006d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_200ms   0x00007a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-         Retardo_20micros   0x000075    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_20ms   0x000080    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_20s   0x000092    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_2ms   0x000086    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_2s   0x000098    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_4micros   0x000069    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_500micros   0x00006a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_500ms   0x00009c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-         Retardo_50micros   0x000072    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_50ms   0x00007e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_5micros   0x000068    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_5ms   0x000084    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_5s   0x000096    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardos_ms   0x000089    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Rmicros_Bucle   0x000077    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                     TRES   0x0000c6    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                      UNO   0x0000ca    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            configuracion   0x00003e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+            RetardoMicros   0x000073    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_100micros   0x00006d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_100ms   0x000079    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+         Retardo_10micros   0x000060    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_10ms   0x00007f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_10s   0x000091    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_1Decima   0x00009a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_1ms   0x000085    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_1s   0x000097    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_200micros   0x00006a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_200ms   0x000077    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+         Retardo_20micros   0x000072    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_20ms   0x00007d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_20s   0x00008f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_2ms   0x000083    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_2s   0x000095    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_4micros   0x000066    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_500micros   0x000067    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_500ms   0x000099    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+         Retardo_50micros   0x00006f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_50ms   0x00007b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_5micros   0x000065    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_5ms   0x000081    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_5s   0x000093    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardos_ms   0x000086    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Rmicros_Bucle   0x000074    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                     TRES   0x0000c3    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                      UNO   0x0000c7    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            configuracion   0x00003b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
 
 
 
@@ -88,54 +88,54 @@ Linker Map File - Created Wed Mar 08 09:53:04 2017
                    CONTEO   0x000005    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
                    RUTINA   0x00001a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
                    BUCLE1   0x00001e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE2   0x000026    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE3   0x00002e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-                   BUCLE4   0x000036    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
-            configuracion   0x00003e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-                  HEX_BCD   0x00004b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-                     HEX1   0x000053    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-                     HEX2   0x00005a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
-         Retardo_10micros   0x000063    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_5micros   0x000068    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_4micros   0x000069    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_500micros   0x00006a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_200micros   0x00006d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        Retardo_100micros   0x000070    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-         Retardo_50micros   0x000072    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-         Retardo_20micros   0x000075    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            RetardoMicros   0x000076    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Rmicros_Bucle   0x000077    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_200ms   0x00007a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_100ms   0x00007c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_50ms   0x00007e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_20ms   0x000080    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-             Retardo_10ms   0x000082    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_5ms   0x000084    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_2ms   0x000086    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_1ms   0x000088    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardos_ms   0x000089    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        R1ms_BucleExterno   0x00008a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-        R1ms_BucleInterno   0x00008c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_20s   0x000092    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-              Retardo_10s   0x000094    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_5s   0x000096    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_2s   0x000098    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-               Retardo_1s   0x00009a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-            Retardo_500ms   0x00009c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-          Retardo_1Decima   0x00009d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-   R1Decima_BucleExterno2   0x00009e    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-    R1Decima_BucleExterno   0x0000a0    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-    R1Decima_BucleInterno   0x0000a2    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                    LOOP1   0x0000ac    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                    LOOP2   0x0000ae    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                    LOOP3   0x0000b0    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                 RET_10MS   0x0000b7    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP11   0x0000b9    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP22   0x0000bb    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                   LOOP33   0x0000bd    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                  RETARDO   0x0000c4    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                     TRES   0x0000c6    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                      DOS   0x0000c8    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
-                      UNO   0x0000ca    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   BUCLE2   0x000025    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+                   BUCLE3   0x00002c    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+                   BUCLE4   0x000033    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\lab_uno.asm
+            configuracion   0x00003b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                  HEX_BCD   0x000048    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                     HEX1   0x000050    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+                     HEX2   0x000057    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\config.inc
+         Retardo_10micros   0x000060    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_5micros   0x000065    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_4micros   0x000066    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_500micros   0x000067    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_200micros   0x00006a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        Retardo_100micros   0x00006d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+         Retardo_50micros   0x00006f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+         Retardo_20micros   0x000072    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            RetardoMicros   0x000073    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Rmicros_Bucle   0x000074    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_200ms   0x000077    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_100ms   0x000079    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_50ms   0x00007b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_20ms   0x00007d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+             Retardo_10ms   0x00007f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_5ms   0x000081    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_2ms   0x000083    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_1ms   0x000085    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardos_ms   0x000086    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        R1ms_BucleExterno   0x000087    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+        R1ms_BucleInterno   0x000089    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_20s   0x00008f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+              Retardo_10s   0x000091    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_5s   0x000093    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_2s   0x000095    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+               Retardo_1s   0x000097    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+            Retardo_500ms   0x000099    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+          Retardo_1Decima   0x00009a    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+   R1Decima_BucleExterno2   0x00009b    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+    R1Decima_BucleExterno   0x00009d    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+    R1Decima_BucleInterno   0x00009f    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP1   0x0000a9    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP2   0x0000ab    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                    LOOP3   0x0000ad    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                 RET_10MS   0x0000b4    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP11   0x0000b6    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP22   0x0000b8    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                   LOOP33   0x0000ba    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                  RETARDO   0x0000c1    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                     TRES   0x0000c3    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                      DOS   0x0000c5    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
+                      UNO   0x0000c7    program     static D:\Pc\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\lab1\lab_uno.X\Retardos.inc
 
 
