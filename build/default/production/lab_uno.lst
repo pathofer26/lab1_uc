@@ -1,4 +1,4 @@
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  1
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[207]: Found label after column 1. (CONTEO)
 0005                  00039          CONTEO
 0005   2???           00040             CALL    HEX_BCD
 0006   0825           00041             MOVF    UNIDAD,w
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  2
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (RUTINA)
 0032   00AB           00089             MOVWF   CUENTA1 
 0033   1003           00090 BUCLE4      BCF STATUS,C 
 0034   0D87           00091             RLF PORTC,1  ;RLF
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  3
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
                       00034 
 0056   300A           00035             MOVLW   .10
 0057   0AA6           00036 HEX2        INCF    DECENA,1
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  4
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00034 ;
 0060                  00035 Retardo_10micros                                ; La llamada "call" aporta 2 ciclos máquina.
 0060   0000           00036         nop                                                     ; Aporta 1 ciclo máquina.
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  5
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0078   2???           00087         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
 0079                  00088 Retardo_100ms                                   ; La llamada "call" aporta 2 ciclos máquina.
 0079   3064           00089         movlw   d'100'                          ; Aporta 1 ciclo máquina. Este es el valor de "M".
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  6
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 008F   30C8           00140         movlw   d'200'                          ; Aporta 1 ciclo máquina. Este es el valor de "N".
 0090   2???           00141         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
 0091                  00142 Retardo_10s                                             ; La llamada "call" aporta 2 ciclos máquina.
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  7
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00193 ;                       (N=  5, M=100 y K=249).
                       00194 
                       00195 ;       ===================================================================
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  8
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ Message[305]: Using default destination of 1 (file).
 00B0   2???           00244         GOTO    LOOP2
 Message[305]: Using default destination of 1 (file).
 00B1   0BB5           00245         DECFSZ  CONT11
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE  9
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -527,7 +527,7 @@ Message[305]: Using default destination of 1 (file).
                       00291 
 Warning[205]: Found directive in column 1. (END)
 23F4 3EFF             00103 END
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 10
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 10
 
 
 SYMBOL TABLE
@@ -586,7 +586,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 11
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 11
 
 
 SYMBOL TABLE
@@ -645,7 +645,7 @@ CCPR1L                            00000015
 CCPR2                             0000001B
 CCPR2H                            0000001C
 CCPR2L                            0000001B
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 12
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 12
 
 
 SYMBOL TABLE
@@ -704,7 +704,7 @@ FERR                              00000002
 FSR                               00000004
 FVREN                             00000000
 GCEN                              00000007
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 13
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 13
 
 
 SYMBOL TABLE
@@ -763,7 +763,7 @@ NOT_A                             00000005
 NOT_ADDRESS                       00000005
 NOT_BO                            00000000
 NOT_BOR                           00000000
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 14
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 14
 
 
 SYMBOL TABLE
@@ -822,7 +822,7 @@ PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
 PSTRCON                           0000009D
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 15
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 15
 
 
 SYMBOL TABLE
@@ -881,7 +881,7 @@ RD4                               00000004
 RD5                               00000005
 RD6                               00000006
 RD7                               00000007
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 16
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 16
 
 
 SYMBOL TABLE
@@ -940,7 +940,7 @@ Retardo_5ms                       00000081
 Retardo_5s                        00000093
 Retardos_ms                       00000086
 Rmicros_Bucle                     00000074
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 17
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 17
 
 
 SYMBOL TABLE
@@ -999,7 +999,7 @@ T2CKPS0                           00000000
 T2CKPS1                           00000001
 T2CON                             00000012
 TMR0                              00000001
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 18
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 18
 
 
 SYMBOL TABLE
@@ -1058,7 +1058,7 @@ TRISD2                            00000002
 TRISD3                            00000003
 TRISD4                            00000004
 TRISD5                            00000005
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 19
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 19
 
 
 SYMBOL TABLE
@@ -1117,7 +1117,7 @@ WPUB2                             00000002
 WPUB3                             00000003
 WPUB4                             00000004
 WPUB5                             00000005
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 20
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 20
 
 
 SYMBOL TABLE
@@ -1176,7 +1176,7 @@ _IESO_ON                          00003FFF
 _INTOSC                           00003FFD
 _INTOSCIO                         00003FFC
 _INTRC_OSC_CLKOUT                 00003FFD
-MPASM 5.72                       LAB_UNO.ASM   3-8-2017  13:28:02         PAGE 21
+MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 21
 
 
 SYMBOL TABLE
