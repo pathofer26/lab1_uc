@@ -1,18 +1,25 @@
-Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 39 : Found label after column 1. (CONTEO)
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 43 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 55 : Using default destination of 1 (file).
-Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 64 : Found label after column 1. (RUTINA)
-Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 3 : Found label after column 1. (configuracion)
-Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 6 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 7 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 9 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 2 : Found directive in column 1. (list)
+Message[310] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\P16F887.INC 1522 : Superseding current maximum RAM and RAM map.
+Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 47 : Found label after column 1. (CONTEO)
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 51 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 63 : Using default destination of 1 (file).
+Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 72 : Found label after column 1. (RUTINA)
+Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 115 : Found label after column 1. (X)
+Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 4 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 7 : Found label after column 1. (CONFIGURACION)
 Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 10 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 12 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 11 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 13 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 241 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 243 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 245 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 270 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 272 : Using default destination of 1 (file).
-Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 274 : Using default destination of 1 (file).
-Warning[205] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 103 : Found directive in column 1. (END)
+Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\CONFIG.INC 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 9 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 11 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 13 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 27 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 29 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 31 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 45 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 47 : Using default destination of 1 (file).
+Message[305] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\RETARDOS.INC 49 : Using default destination of 1 (file).
+Warning[205] D:\PC\UPTC\I SEM-2017\MICROC-2017\LABORATORIO\LAB1\LAB_UNO.X\LAB_UNO.ASM 122 : Found directive in column 1. (END)

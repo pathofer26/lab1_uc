@@ -1,12 +1,13 @@
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  1
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00001 ;----------------------------- ENCABEZADO --------------------------------------
-                      00002     list p=16f887           
-                      00003     #include "p16f887.inc"
+                      00001 ;******************************************************************************************************
+Warning[205]: Found directive in column 1. (list)
+                      00002 list p=16F887
+                      00003 #include"p16f887.inc"
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
@@ -17,517 +18,301 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 ;==========================================================================
                       00009 
                       00810         LIST
-                      00004 
-                      00005     ; CONFIG1
-                      00006     ; __config 0xE3F4
-2007   23F4           00007      __CONFIG _CONFIG1, _FOSC_INTRC_NOCLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF &
-                             _BOREN_ON & _IESO_OFF & _FCMEN_OFF & _LVP_OFF
-                      00008     ; CONFIG2
-                      00009     ; __config 0xFEFF
-2008   3EFF           00010      __CONFIG _CONFIG2, _BOR4V_BOR21V & _WRT_OFF
-                      00011 ;-------------------------------------------------------------------------------    
-                      00012  CBLOCK 0X20
-  00000020            00013  REG1
-  00000021            00014  REG2
-  00000022            00015  REG3
-  00000023            00016  ENTRADA
-  00000024            00017  CUENTA
-  00000025            00018  UNIDAD
-  00000026            00019  DECENA
-  00000027            00020  CENTENA
-  00000028            00021  REGH1
-  00000029            00022  REGH
-  0000002A            00023  REG1AUX
-  0000002B            00024  CUENTA1
-                      00025 
-                      00026  ENDC
-                      00027  
-                      00028  
-                      00029  ORG    .0
-                      00030  
-0000                  00031 INICIO:
-0000   2???           00032  call   configuracion
-0001   0186           00033  CLRF   PORTB       ;CLAREAR PUERTOS A Y B
-0002   0187           00034  CLRF   PORTC       ;
-                      00035 
-0003                  00036 PRINCIPAL:
-0003   0805           00037             MOVF    PORTA,w
-0004   00A8           00038             MOVWF   REGH1
-Warning[207]: Found label after column 1. (CONTEO)
-0005                  00039          CONTEO
-0005   2???           00040             CALL    HEX_BCD
-0006   0825           00041             MOVF    UNIDAD,w
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  2
+                      00004 ;--------------------------- CONFIGURACION DE PUERTOS  -------------------------
+                      00005     #include "p16f887.inc"
+                      00811         LIST
+                      00812 
+                      00813 ;==========================================================================
+                      00814 ; Build date : Dec 08 2015
+                      00815 ;  MPASM PIC16F887 processor include
+                      00816 ; 
+                      00817 ;  (c) Copyright 1999-2015 Microchip Technology, All rights reserved
+                      00818 ;==========================================================================
+                      00819 
+Message[310]: Superseding current maximum RAM and RAM map.
+                      01620         LIST
+                      00006 
+                      00007 ; CONFIG1
+                      00008 ; __config 0xE0F5
+2007   20F5           00009  __CONFIG _CONFIG1, _FOSC_INTRC_CLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BORE
+                            N_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF
+                      00010 ; CONFIG2
+                      00011 ; __config 0xFFFF
+2008   3FFF           00012  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
+                      00013  
+                      00014 ;********************************************************
+                      00015  CBLOCK 0X20
+  00000020            00016  REG1
+  00000021            00017  REG2
+  00000022            00018  REG3
+  00000023            00019  ENTRADA
+  00000024            00020  CUENTA
+  00000025            00021  UNIDAD
+  00000026            00022  DECENA
+  00000027            00023  CENTENA
+  00000028            00024  REGH1
+  00000029            00025  REGH
+  0000002A            00026  REG1AUX
+  0000002B            00027  CUENTA1
+  0000002C            00028  K
+  0000002D            00029  M
+  0000002E            00030  N
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0007   00AA           00042             MOVWF   REG1AUX
-Message[305]: Using default destination of 1 (file).
-0008   0EA6           00043             SWAPF   DECENA    ;cambia los 4 bits de la parte H y los coloca en L y viceversa
-0009   0826           00044             MOVF    DECENA,w
-000A   04AA           00045             IORWF   REG1AUX,1 ;or
-000B   082A           00046             MOVF    REG1AUX,w
-000C   0086           00047             MOVWF   PORTB
-000D   0827           00048             MOVF    CENTENA,w
-000E   0087           00049             MOVWF   PORTC 
-000F   2???           00050             CALL    Retardo_500ms
-0010   30FF           00051             MOVLW   0XFF
-0011   0228           00052             SUBWF   REGH1,w
-0012   1903           00053             BTFSC   STATUS,Z
-0013   2???           00054             CALL    RUTINA
-Message[305]: Using default destination of 1 (file).
-0014   0AA8           00055             INCF    REGH1
-0015   0828           00056             MOVF    REGH1,W
-0016   1C08           00057             BTFSS   PORTD,RD0
-0017   2???           00058             GOTO    CONTEO
-0018   2???           00059             CALL    Retardo_2ms
-0019   2???           00060             GOTO    PRINCIPAL
-                      00061             
-                      00062             
-                      00063 ;**************RUTINA***********************        
-Warning[207]: Found label after column 1. (RUTINA)
-001A                  00064         RUTINA
-001A   0187           00065             CLRF    PORTC
-001B   0186           00066             CLRF    PORTB      
-001C   3008           00067             MOVLW   .8 
-001D   00AB           00068             MOVWF   CUENTA1 
-001E   1403           00069 BUCLE1      BSF     STATUS,C 
-001F   0C87           00070             RRF     PORTC,1  ;RRF
-0020   2???           00071             CALL    Retardo_500ms   
-0021   0BAB           00072             DECFSZ  CUENTA1,1 
-0022   2???           00073             GOTO    BUCLE1 
-0023   3008           00074             MOVLW   .8 
-0024   00AB           00075             MOVWF   CUENTA1  
-0025   1403           00076 BUCLE2      BSF STATUS,C 
-0026   0C86           00077             RRF PORTB,1  ;RRF
-0027   2???           00078             CALL    Retardo_500ms 
-0028   0BAB           00079             DECFSZ  CUENTA1,1 
-0029   2???           00080             GOTO BUCLE2 
-002A   3008           00081             MOVLW .8 
-002B   00AB           00082             MOVWF   CUENTA1 
-002C   1003           00083 BUCLE3      BCF STATUS,C 
-002D   0D86           00084             RLF PORTB,1  ;RLF
-002E   2???           00085             CALL    Retardo_500ms 
-002F   0BAB           00086             DECFSZ  CUENTA1,1 
-0030   2???           00087             GOTO BUCLE3
-0031   3004           00088             MOVLW .4 
-0032   00AB           00089             MOVWF   CUENTA1 
-0033   1003           00090 BUCLE4      BCF STATUS,C 
-0034   0D87           00091             RLF PORTC,1  ;RLF
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  3
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0035   2???           00092             CALL    Retardo_500ms 
-0036   0BAB           00093             DECFSZ  CUENTA1,1 
-0037   2???           00094             GOTO BUCLE4
-0038   3000           00095             MOVLW   .0
-0039   00A0           00096             MOVWF   REG1
-003A   0008           00097             RETURN
-                      00098 ;****************************************************************           
-                      00099 
-                      00100 
-                      00101 #include    "config.inc"
-                      00001 
-                      00002  
-Warning[207]: Found label after column 1. (configuracion)
-003B                  00003  configuracion:
-003B   1683           00004     BSF STATUS,RP0          ; SE SELECCIONA BANCO 3
-003C   1703           00005     BSF STATUS,RP1          ;
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-003D   0188           00006     CLRF        ANSEL       ;SE CONFIGURAN LOS PUERTOS A Y B
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-003E   0189           00007     CLRF        ANSELH      ;COMO DE I/O
-003F   1303           00008     BCF STATUS,RP1
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0040   0186           00009     CLRF        TRISB       ;PUERTO B COMO SALIDA
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0041   0187           00010     CLRF        TRISC       ;PUERTO C COMO SALIDA
-0042   30FF           00011     MOVLW       0xFF        ;MUEVA A W FF
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0043   0085           00012     MOVWF       TRISA       ;PUERTO A COMO ENTRADA
-0044   3001           00013     MOVLW       0X01        ;MUEVO A W 1
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0045   0088           00014     MOVWF       TRISD       ;PIN RD0 COMO ENTRADA
-0046   1283           00015     BCF STATUS,RP0          ;
-0047   0008           00016  return
-                      00017  
-                      00018  ;********** RUTINA PARA PASAR DE HEXADECIMAL A FORMATO BCD********
-0048   00A9           00019 HEX_BCD     MOVWF   REGH
-0049   01A5           00020             CLRF    UNIDAD
-004A   01A6           00021             CLRF    DECENA
-004B   01A7           00022             CLRF    CENTENA
-004C   3A00           00023             XORLW   0           ; REGH XOR 0
-004D   1903           00024             BTFSC   STATUS,Z    ;SALTE SI REGH ES DIFERENTE DE CERO
-004E   0008           00025             RETURN
-004F   3064           00026             MOVLW   .100
-0050   0AA7           00027 HEX1        INCF    CENTENA,1
-0051   02A9           00028             SUBWF   REGH,1      ;REGH-100  C=1 SI REGH>= 100 Y C=0 0 SI <
-0052   1803           00029             BTFSC   STATUS,C
-0053   2???           00030             GOTO    HEX1
-0054   03A7           00031             DECF    CENTENA,1
-0055   07A9           00032             ADDWF   REGH,1      ;recupra el numero N + 100
-                      00033 
-                      00034 
-0056   300A           00035             MOVLW   .10
-0057   0AA6           00036 HEX2        INCF    DECENA,1
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  4
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0058   02A9           00037             SUBWF   REGH,1      ;REGH-100  C=1 SI + O 0; 0 SI -
-0059   1803           00038             BTFSC   STATUS,C
-005A   2???           00039             GOTO    HEX2
-005B   03A6           00040             DECF    DECENA,1
-005C   07A9           00041             ADDWF   REGH,1
+                      00031 
+                      00032  ENDC
+                      00033  
+                      00034  
+                      00035  ORG    .0
+                      00036  
+0000                  00037 INICIO:
+0000   2???           00038  CALL    OSC_CONF
+0001   2???           00039  CALL    CONFIGURACION
+0002   0186           00040  CLRF   PORTB       ;CLAREAR PUERTOS A Y B
+0003   0187           00041  CLRF   PORTC       ;
                       00042 
-005D   0829           00043             MOVF    REGH,0
-005E   00A5           00044             MOVWF   UNIDAD
-005F   0008           00045             RETURN
+0004                  00043 PRINCIPAL:
+0004   01A8           00044             CLRF    REGH1
+0005   0805           00045             MOVF    PORTA,w
+0006   00A8           00046             MOVWF   REGH1
+Warning[207]: Found label after column 1. (CONTEO)
+0007                  00047          CONTEO
+0007   2???           00048             CALL    HEX_BCD
+0008   0825           00049             MOVF    UNIDAD,w
+0009   00AA           00050             MOVWF   REG1AUX
+Message[305]: Using default destination of 1 (file).
+000A   0EA6           00051             SWAPF   DECENA    ;cambia los 4 bits de la parte H y los coloca en L y viceversa
+000B   0826           00052             MOVF    DECENA,w
+000C   04AA           00053             IORWF   REG1AUX,1 ;or
+000D   082A           00054             MOVF    REG1AUX,w
+000E   0086           00055             MOVWF   PORTB
+000F   0827           00056             MOVF    CENTENA,w
+0010   0087           00057             MOVWF   PORTC 
+0011   2???           00058             CALL    RETARDO_500ms
+0012   30FF           00059             MOVLW   0XFF
+0013   0228           00060             SUBWF   REGH1,w
+0014   1903           00061             BTFSC   STATUS,Z
+0015   2???           00062             CALL    RUTINA
+Message[305]: Using default destination of 1 (file).
+0016   0AA8           00063             INCF    REGH1
+0017   0828           00064             MOVF    REGH1,W
+0018   1C08           00065             BTFSS   PORTD,RD0
+0019   2???           00066             GOTO    CONTEO
+001A   2???           00067             CALL    RETARDO_250ms
+001B   2???           00068             GOTO    PRINCIPAL
+                      00069             
+                      00070             
+                      00071 ;**************RUTINA***********************        
+Warning[207]: Found label after column 1. (RUTINA)
+001C                  00072         RUTINA
+001C   0187           00073             CLRF    PORTC
+001D   0186           00074             CLRF    PORTB      
+001E   3008           00075             MOVLW   .8 
+001F   00AB           00076             MOVWF   CUENTA1 
+0020   1808           00077 BUCLE1      BTFSC   PORTD,RD0
+0021   2???           00078             GOTO    X
+0022   1403           00079             BSF     STATUS,C 
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0023   0C87           00080             RRF     PORTC,1  ;RRF
+0024   2???           00081             CALL    RETARDO_500ms   
+0025   0BAB           00082             DECFSZ  CUENTA1,1 
+0026   2???           00083             GOTO    BUCLE1 
+0027   3008           00084             MOVLW   .8 
+0028   00AB           00085             MOVWF   CUENTA1  
+0029   1808           00086 BUCLE2      BTFSC   PORTD,RD0
+002A   2???           00087             GOTO    X
+002B   1403           00088             BSF STATUS,C 
+002C   0C86           00089             RRF PORTB,1  ;RRF
+002D   2???           00090             CALL    RETARDO_500ms 
+002E   0BAB           00091             DECFSZ  CUENTA1,1 
+002F   2???           00092             GOTO BUCLE2 
+0030   3008           00093             MOVLW .8 
+0031   00AB           00094             MOVWF   CUENTA1 
+0032   1808           00095 BUCLE3      BTFSC   PORTD,RD0
+0033   2???           00096             GOTO    X
+0034   1003           00097             BCF STATUS,C 
+0035   0D86           00098             RLF PORTB,1  ;RLF
+0036   2???           00099             CALL    RETARDO_500ms 
+0037   0BAB           00100             DECFSZ  CUENTA1,1 
+0038   2???           00101             GOTO BUCLE3
+0039   3004           00102             MOVLW .4 
+003A   00AB           00103             MOVWF   CUENTA1 
+003B   1808           00104 BUCLE4      BTFSC   PORTD,RD0
+003C   2???           00105             GOTO    X
+003D   1003           00106             BCF STATUS,C 
+003E   0D87           00107             RLF PORTC,1  ;RLF
+003F   2???           00108             CALL    RETARDO_500ms 
+0040   0BAB           00109             DECFSZ  CUENTA1,1 
+0041   2???           00110             GOTO BUCLE4
+0042   3000           00111             MOVLW   .0
+0043   00A0           00112             MOVWF   REG1
+0044   0008           00113             RETURN
+                      00114 ;****************************************************************
+Warning[207]: Found label after column 1. (X)
+0045   2???           00115     X       CALL    RETARDO_250ms
+0046   2???           00116             GOTO    PRINCIPAL
+                      00117 ;**********
+                      00118 
+                      00119 
+                      00120 #include    "config.inc"
+0047                  00001 OSC_CONF:
+0047   1683 1303      00002     BANKSEL OSCCON
+0049   30F1           00003     MOVLW   0XF1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+004A   008F           00004     MOVWF   OSCCON
+004B   0008           00005     RETURN
+                      00006  
+Warning[207]: Found label after column 1. (CONFIGURACION)
+004C                  00007  CONFIGURACION:
+004C   1683           00008     BSF STATUS,RP0          ; SE SELECCIONA BANCO 3
+004D   1703           00009     BSF STATUS,RP1          ;
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+004E   0188           00010     CLRF        ANSEL       ;SE CONFIGURAN LOS PUERTOS A Y B
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+004F   0189           00011     CLRF        ANSELH      ;COMO DE I/O
+0050   1303           00012     BCF STATUS,RP1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0051   0186           00013     CLRF        TRISB       ;PUERTO B COMO SALIDA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0052   0187           00014     CLRF        TRISC       ;PUERTO C COMO SALIDA
+0053   30FF           00015     MOVLW       0xFF        ;MUEVA A W FF
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0054   0085           00016     MOVWF       TRISA       ;PUERTO A COMO ENTRADA
+0055   3001           00017     MOVLW       0X01        ;MUEVO A W 1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0056   0088           00018     MOVWF       TRISD       ;PIN RD0 COMO ENTRADA
+0057   1283           00019     BCF STATUS,RP0          ;
+0058   0008           00020  return
+                      00021  
+                      00022  ;********** RUTINA PARA PASAR DE HEXADECIMAL A FORMATO BCD********
+0059   00A9           00023 HEX_BCD     MOVWF   REGH
+005A   01A5           00024             CLRF    UNIDAD
+005B   01A6           00025             CLRF    DECENA
+005C   01A7           00026             CLRF    CENTENA
+005D   3A00           00027             XORLW   0           ; REGH XOR 0
+005E   1903           00028             BTFSC   STATUS,Z    ;SALTE SI REGH ES DIFERENTE DE CERO
+005F   0008           00029             RETURN
+0060   3064           00030             MOVLW   .100
+0061   0AA7           00031 HEX1        INCF    CENTENA,1
+0062   02A9           00032             SUBWF   REGH,1      ;REGH-100  C=1 SI REGH>= 100 Y C=0 0 SI <
+0063   1803           00033             BTFSC   STATUS,C
+0064   2???           00034             GOTO    HEX1
+0065   03A7           00035             DECF    CENTENA,1
+0066   07A9           00036             ADDWF   REGH,1      ;recupra el numero N + 100
+                      00037 
+                      00038 
+0067   300A           00039             MOVLW   .10
+0068   0AA6           00040 HEX2        INCF    DECENA,1
+0069   02A9           00041             SUBWF   REGH,1      ;REGH-100  C=1 SI + O 0; 0 SI -
+006A   1803           00042             BTFSC   STATUS,C
+006B   2???           00043             GOTO    HEX2
+006C   03A6           00044             DECF    DECENA,1
+006D   07A9           00045             ADDWF   REGH,1
                       00046 
-                      00047 ;*************************************************************
-                      00048           
-                      00049 
-                      00050     
-                      00051 
-                      00052 
-                      00102 #include    "Retardos.inc"
-                      00001 ;**************************** Librería "RETARDOS.INC" *********************************
-                      00002 ;
-                      00003 ;       ===================================================================
-                      00004 ;         Del libro "MICROCONTROLADOR PIC16F84. DESARROLLO DE PROYECTOS"
-                      00005 ;         E. Palacios, F. Remiro y L. López.            www.pic16f84a.com
-                      00006 ;         Editorial Ra-Ma.  www.ra-ma.es
-                      00007 ;       ===================================================================
-                      00008 ;
-                      00009 ; Librería con múltiples subrutinas de retardos, desde 4 microsegundos hasta 20 segundos.
-                      00010 ; Además se pueden implementar otras subrutinas muy fácilmente.
-                      00011 ;
-                      00012 ; Se han calculado para un sistema microcontrolador con un PIC trabajando con un cristal
-                      00013 ; de cuarzo a 4 MHz. Como cada ciclo máquina son 4 ciclos de reloj, resulta que cada
-                      00014 ; ciclo máquina tarda 4 x 1/4MHz = 1 µs.
-                      00015 ;
-                      00016 ; En los comentarios, "cm" significa "ciclos máquina".
-                      00017 ;
-                      00018 ; ZONA DE DATOS *********************************************************************
-                      00019 
-                      00020         CBLOCK
-  0000002C            00021         R_ContA                                         ; Contadores para los retardos.
-  0000002D            00022         R_ContB
-  0000002E            00023         R_ContC
-  0000002F            00024     RET1
-  00000030            00025     RET2
-  00000031            00026     RET3
-                      00027         ENDC
-                      00028 ;
-                      00029 ; RETARDOS de 4 hasta 10 microsegundos ---------------------------------------------------
-                      00030 ;
-                      00031 ; A continuación retardos pequeños teniendo en cuenta que para una frecuencia de 4 MHZ,
-                      00032 ; la llamada a subrutina "call" tarda 2 ciclos máquina, el retorno de subrutina
-                      00033 ; "return" toma otros 2 ciclos máquina y cada instrucción "nop" tarda 1 ciclo máquina.
-                      00034 ;
-0060                  00035 Retardo_10micros                                ; La llamada "call" aporta 2 ciclos máquina.
-0060   0000           00036         nop                                                     ; Aporta 1 ciclo máquina.
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  5
+006E   0829           00047             MOVF    REGH,0
+006F   00A5           00048             MOVWF   UNIDAD
+0070   0008           00049             RETURN
+                      00050 
+                      00051 ;*************************************************************
+                      00052           
+                      00053 
+                      00054     
+                      00055 
+                      00056 
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0061   0000           00037         nop                                                     ; Aporta 1 ciclo máquina.
-0062   0000           00038         nop                                                     ; Aporta 1 ciclo máquina.
-0063   0000           00039         nop                                                     ; Aporta 1 ciclo máquina.
-0064   0000           00040         nop                                                     ; Aporta 1 ciclo máquina.
-0065                  00041 Retardo_5micros                                 ; La llamada "call" aporta 2 ciclos máquina.
-0065   0000           00042         nop                                                     ; Aporta 1 ciclo máquina.
-0066                  00043 Retardo_4micros                                 ; La llamada "call" aporta 2 ciclos máquina.
-0066   0008           00044         return                                          ; El salto del retorno aporta 2 ciclos máquina.
-                      00045 ;
-                      00046 ; RETARDOS de 20 hasta 500 microsegundos ------------------------------------------------
-                      00047 ;
-0067                  00048 Retardo_500micros                               ; La llamada "call" aporta 2 ciclos máquina.
-0067   0000           00049         nop                                                     ; Aporta 1 ciclo máquina.
-0068   30A4           00050         movlw   d'164'                          ; Aporta 1 ciclo máquina. Este es el valor de "K".
-0069   2???           00051         goto    RetardoMicros           ; Aporta 2 ciclos máquina.
-006A                  00052 Retardo_200micros                               ; La llamada "call" aporta 2 ciclos máquina.
-006A   0000           00053         nop                                                     ; Aporta 1 ciclo máquina.
-006B   3040           00054         movlw   d'64'                           ; Aporta 1 ciclo máquina. Este es el valor de "K".
-006C   2???           00055         goto    RetardoMicros           ; Aporta 2 ciclos máquina.
-006D                  00056 Retardo_100micros                               ; La llamada "call" aporta 2 ciclos máquina.
-006D   301F           00057         movlw   d'31'                           ; Aporta 1 ciclo máquina. Este es el valor de "K".
-006E   2???           00058         goto    RetardoMicros           ; Aporta 2 ciclos máquina.
-006F                  00059 Retardo_50micros                                ; La llamada "call" aporta 2 ciclos máquina.
-006F   0000           00060         nop                                                     ; Aporta 1 ciclo máquina.
-0070   300E           00061         movlw   d'14'                           ; Aporta 1 ciclo máquina. Este es el valor de "K".
-0071   2???           00062         goto    RetardoMicros           ; Aporta 2 ciclos máquina.
-0072                  00063 Retardo_20micros                                ; La llamada "call" aporta 2 ciclos máquina.
-0072   3005           00064         movlw   d'5'                            ; Aporta 1 ciclo máquina. Este es el valor de "K".
-                      00065 ;
-                      00066 ; El próximo bloque "RetardoMicros" tarda:
-                      00067 ; 1 + (K-1) + 2 + (K-1)x2 + 2 = (2 + 3K) ciclos máquina.
-                      00068 ;
-0073                  00069 RetardoMicros
-0073   00AC           00070         movwf   R_ContA                         ; Aporta 1 ciclo máquina.
-0074                  00071 Rmicros_Bucle
-0074   0BAC           00072         decfsz  R_ContA,F                       ; (K-1)x1 cm (cuando no salta) + 2 cm (al saltar).
-0075   2???           00073         goto    Rmicros_Bucle           ; Aporta (K-1)x2 ciclos máquina.
-0076   0008           00074         return                                          ; El salto del retorno aporta 2 ciclos máquina.
-                      00075 ;
-                      00076 ;En total estas subrutinas tardan:
-                      00077 ; - Retardo_500micros:  2 + 1 + 1 + 2 + (2 + 3K) = 500 cm = 500 µs. (para K=164 y 4 MHz).
-                      00078 ; - Retardo_200micros:  2 + 1 + 1 + 2 + (2 + 3K) = 200 cm = 200 µs. (para K= 64 y 4 MHz).
-                      00079 ; - Retardo_100micros:  2     + 1 + 2 + (2 + 3K) = 100 cm = 100 µs. (para K= 31 y 4 MHz).
-                      00080 ; - Retardo_50micros :  2 + 1 + 1 + 2 + (2 + 3K) =  50 cm =  50 µs. (para K= 14 y 4 MHz).
-                      00081 ; - Retardo_20micros :  2     + 1     + (2 + 3K) =  20 cm =  20 µs. (para K=  5 y 4 MHz).
-                      00082 ;
-                      00083 ; RETARDOS de 1 ms hasta 200 ms. --------------------------------------------------------
-                      00084 ;
-0077                  00085 Retardo_200ms                                   ; La llamada "call" aporta 2 ciclos máquina.
-0077   30C8           00086         movlw   d'200'                          ; Aporta 1 ciclo máquina. Este es el valor de "M".
-0078   2???           00087         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-0079                  00088 Retardo_100ms                                   ; La llamada "call" aporta 2 ciclos máquina.
-0079   3064           00089         movlw   d'100'                          ; Aporta 1 ciclo máquina. Este es el valor de "M".
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  6
+                      00121 #include    "RETARDOS.inc"
+                      00001 ;----------RUTINA DE RETARDO 500ms---------------
+0071                  00002 RETARDO_500ms:
+0071   30FF           00003     MOVLW   .255
+0072   00AC           00004     MOVWF   K
+0073   30B4           00005 UNO MOVLW   .180
+0074   00AD           00006     MOVWF   M
+0075   3006           00007 DOS MOVLW   .6
+0076   00AE           00008     MOVWF   N
+Message[305]: Using default destination of 1 (file).
+0077   0BAE           00009     DECFSZ  N
+0078   2???           00010     GOTO    $-1 
+Message[305]: Using default destination of 1 (file).
+0079   0BAD           00011     DECFSZ  M
+007A   2???           00012     GOTO    DOS
+Message[305]: Using default destination of 1 (file).
+007B   0BAC           00013     DECFSZ  K
+007C   2???           00014     GOTO    UNO
+007D   0008           00015  RETURN 
+                      00016 ;------------------------------------------
+                      00017 ;----------RUTINA DE RETARDO 1s---------------
+007E                  00018 RETARDO_1s:
+007E   30FF           00019     MOVLW   .255
+007F   00AC           00020     MOVWF   K
+0080                  00021 CONT
+0080   30FF           00022     MOVLW   .255
+0081   00AD           00023     MOVWF   M
+0082                  00024 CONT0
+0082   3009           00025     MOVLW   .9
+0083   00AE           00026     MOVWF   N
+Message[305]: Using default destination of 1 (file).
+0084   0BAE           00027     DECFSZ  N
+0085   2???           00028     GOTO    $-1 
+Message[305]: Using default destination of 1 (file).
+0086   0BAD           00029     DECFSZ  M
+0087   2???           00030     GOTO    CONT0
+Message[305]: Using default destination of 1 (file).
+0088   0BAC           00031     DECFSZ  K
+0089   2???           00032     GOTO    CONT
+008A   0008           00033  RETURN 
+                      00034 ;------------------------------------------
+                      00035  ;----------RUTINA DE RETARDO 250ms---------------
+008B                  00036 RETARDO_250ms:
+008B   3064           00037     MOVLW   .100
+008C   00AC           00038     MOVWF   K
+008D                  00039 CONT1
+008D   3064           00040     MOVLW   .100
+008E   00AD           00041     MOVWF   M
+008F                  00042 CONT2
+008F   300F           00043     MOVLW   .15
+0090   00AE           00044     MOVWF   N
+Message[305]: Using default destination of 1 (file).
+0091   0BAE           00045     DECFSZ  N
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-007A   2???           00090         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-007B                  00091 Retardo_50ms                                    ; La llamada "call" aporta 2 ciclos máquina.
-007B   3032           00092         movlw   d'50'                           ; Aporta 1 ciclo máquina. Este es el valor de "M".
-007C   2???           00093         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-007D                  00094 Retardo_20ms                                    ; La llamada "call" aporta 2 ciclos máquina.
-007D   3014           00095         movlw   d'20'                           ; Aporta 1 ciclo máquina. Este es el valor de "M".
-007E   2???           00096         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-007F                  00097 Retardo_10ms                                    ; La llamada "call" aporta 2 ciclos máquina.
-007F   300A           00098         movlw   d'10'                           ; Aporta 1 ciclo máquina. Este es el valor de "M".
-0080   2???           00099         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-0081                  00100 Retardo_5ms                                             ; La llamada "call" aporta 2 ciclos máquina.
-0081   3005           00101         movlw   d'5'                            ; Aporta 1 ciclo máquina. Este es el valor de "M".
-0082   2???           00102         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-0083                  00103 Retardo_2ms                                             ; La llamada "call" aporta 2 ciclos máquina.
-0083   3002           00104         movlw   d'2'                            ; Aporta 1 ciclo máquina. Este es el valor de "M".
-0084   2???           00105         goto    Retardos_ms                     ; Aporta 2 ciclos máquina.
-0085                  00106 Retardo_1ms                                             ; La llamada "call" aporta 2 ciclos máquina.
-0085   3001           00107         movlw   d'1'                            ; Aporta 1 ciclo máquina. Este es el valor de "M".
-                      00108 ;
-                      00109 ; El próximo bloque "Retardos_ms" tarda:
-                      00110 ; 1 + M + M + KxM + (K-1)xM + Mx2 + (K-1)Mx2 + (M-1) + 2 + (M-1)x2 + 2 =
-                      00111 ; = (2 + 4M + 4KM) ciclos máquina. Para K=249 y M=1 supone 1002 ciclos máquina
-                      00112 ; que a 4 MHz son 1002 µs = 1 ms.
-                      00113 ;
-0086                  00114 Retardos_ms
-0086   00AD           00115         movwf   R_ContB                         ; Aporta 1 ciclo máquina.
-0087                  00116 R1ms_BucleExterno
-0087   30F9           00117         movlw   d'249'                          ; Aporta Mx1 ciclos máquina. Este es el valor de "K".
-0088   00AC           00118         movwf   R_ContA                         ; Aporta Mx1 ciclos máquina.
-0089                  00119 R1ms_BucleInterno
-0089   0000           00120         nop                                                     ; Aporta KxMx1 ciclos máquina.
-008A   0BAC           00121         decfsz  R_ContA,F                       ; (K-1)xMx1 cm (cuando no salta) + Mx2 cm (al saltar).
-008B   2???           00122         goto    R1ms_BucleInterno       ; Aporta (K-1)xMx2 ciclos máquina.
-008C   0BAD           00123         decfsz  R_ContB,F                       ; (M-1)x1 cm (cuando no salta) + 2 cm (al saltar).
-008D   2???           00124         goto    R1ms_BucleExterno       ; Aporta (M-1)x2 ciclos máquina.
-008E   0008           00125         return                                          ; El salto del retorno aporta 2 ciclos máquina.
-                      00126 ;
-                      00127 ;En total estas subrutinas tardan:
-                      00128 ; - Retardo_200ms:      2 + 1 + 2 + (2 + 4M + 4KM) = 200007 cm = 200 ms. (M=200 y K=249).
-                      00129 ; - Retardo_100ms:      2 + 1 + 2 + (2 + 4M + 4KM) = 100007 cm = 100 ms. (M=100 y K=249).
-                      00130 ; - Retardo_50ms :      2 + 1 + 2 + (2 + 4M + 4KM) =  50007 cm =  50 ms. (M= 50 y K=249).
-                      00131 ; - Retardo_20ms :      2 + 1 + 2 + (2 + 4M + 4KM) =  20007 cm =  20 ms. (M= 20 y K=249).
-                      00132 ; - Retardo_10ms :      2 + 1 + 2 + (2 + 4M + 4KM) =  10007 cm =  10 ms. (M= 10 y K=249).
-                      00133 ; - Retardo_5ms  :      2 + 1 + 2 + (2 + 4M + 4KM) =   5007 cm =   5 ms. (M=  5 y K=249).
-                      00134 ; - Retardo_2ms  :      2 + 1 + 2 + (2 + 4M + 4KM) =   2007 cm =   2 ms. (M=  2 y K=249).
-                      00135 ; - Retardo_1ms  :      2 + 1     + (2 + 4M + 4KM) =   1005 cm =   1 ms. (M=  1 y K=249).
-                      00136 ;
-                      00137 ; RETARDOS de 0.5 hasta 20 segundos ---------------------------------------------------
-                      00138 ;
-008F                  00139 Retardo_20s                                             ; La llamada "call" aporta 2 ciclos máquina.
-008F   30C8           00140         movlw   d'200'                          ; Aporta 1 ciclo máquina. Este es el valor de "N".
-0090   2???           00141         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
-0091                  00142 Retardo_10s                                             ; La llamada "call" aporta 2 ciclos máquina.
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  7
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0091   3064           00143         movlw   d'100'                          ; Aporta 1 ciclo máquina. Este es el valor de "N".
-0092   2???           00144         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
-0093                  00145 Retardo_5s                                              ; La llamada "call" aporta 2 ciclos máquina.
-0093   3032           00146         movlw   d'50'                           ; Aporta 1 ciclo máquina. Este es el valor de "N".
-0094   2???           00147         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
-0095                  00148 Retardo_2s                                              ; La llamada "call" aporta 2 ciclos máquina.
-0095   3014           00149         movlw   d'20'                           ; Aporta 1 ciclo máquina. Este es el valor de "N".
-0096   2???           00150         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
-0097                  00151 Retardo_1s                                              ; La llamada "call" aporta 2 ciclos máquina.
-0097   300A           00152         movlw   d'10'                           ; Aporta 1 ciclo máquina. Este es el valor de "N".
-0098   2???           00153         goto    Retardo_1Decima         ; Aporta 2 ciclos máquina.
-0099                  00154 Retardo_500ms                                   ; La llamada "call" aporta 2 ciclos máquina.
-0099   3005           00155         movlw   d'5'                            ; Aporta 1 ciclo máquina. Este es el valor de "N".
-                      00156 ;
-                      00157 ; El próximo bloque "Retardo_1Decima" tarda:
-                      00158 ; 1 + N + N + MxN + MxN + KxMxN + (K-1)xMxN + MxNx2 + (K-1)xMxNx2 +
-                      00159 ;   + (M-1)xN + Nx2 + (M-1)xNx2 + (N-1) + 2 + (N-1)x2 + 2 =
-                      00160 ; = (2 + 4M + 4MN + 4KM) ciclos máquina. Para K=249, M=100 y N=1 supone 100011
-                      00161 ; ciclos máquina que a 4 MHz son 100011 µs = 100 ms = 0,1 s = 1 décima de segundo.
-                      00162 ;
-009A                  00163 Retardo_1Decima
-009A   00AE           00164         movwf   R_ContC                         ; Aporta 1 ciclo máquina.
-009B                  00165 R1Decima_BucleExterno2
-009B   3064           00166         movlw   d'100'                          ; Aporta Nx1 ciclos máquina. Este es el valor de "M".
-009C   00AD           00167         movwf   R_ContB                         ; Aporta Nx1 ciclos máquina.
-009D                  00168 R1Decima_BucleExterno
-009D   30F9           00169         movlw   d'249'                          ; Aporta MxNx1 ciclos máquina. Este es el valor de "K".
-009E   00AC           00170         movwf   R_ContA                         ; Aporta MxNx1 ciclos máquina.
-009F                  00171 R1Decima_BucleInterno
-009F   0000           00172         nop                                                     ; Aporta KxMxNx1 ciclos máquina.
-00A0   0BAC           00173         decfsz  R_ContA,F                       ; (K-1)xMxNx1 cm (si no salta) + MxNx2 cm (al saltar).
-00A1   2???           00174         goto    R1Decima_BucleInterno   ; Aporta (K-1)xMxNx2 ciclos máquina.
-00A2   0BAD           00175         decfsz  R_ContB,F                       ; (M-1)xNx1 cm (cuando no salta) + Nx2 cm (al saltar).
-00A3   2???           00176         goto    R1Decima_BucleExterno   ; Aporta (M-1)xNx2 ciclos máquina.
-00A4   0BAE           00177         decfsz  R_ContC,F                       ; (N-1)x1 cm (cuando no salta) + 2 cm (al saltar).
-00A5   2???           00178         goto    R1Decima_BucleExterno2  ; Aporta (N-1)x2 ciclos máquina.
-00A6   0008           00179         return                                          ; El salto del retorno aporta 2 ciclos máquina.
-                      00180 ;
-                      00181 ;En total estas subrutinas tardan:
-                      00182 ; - Retardo_20s:        2 + 1 + 2 + (2 + 4N + 4MN + 4KMN) = 20000807 cm = 20 s.
-                      00183 ;                       (N=200, M=100 y K=249).
-                      00184 ; - Retardo_10s:        2 + 1 + 2 + (2 + 4N + 4MN + 4KMN) = 10000407 cm = 10 s.
-                      00185 ;                       (N=100, M=100 y K=249).
-                      00186 ; - Retardo_5s:         2 + 1 + 2 + (2 + 4N + 4MN + 4KMN) =  5000207 cm =  5 s.
-                      00187 ;                       (N= 50, M=100 y K=249).
-                      00188 ; - Retardo_2s:         2 + 1 + 2 + (2 + 4N + 4MN + 4KMN) =  2000087 cm =  2 s.
-                      00189 ;                       (N= 20, M=100 y K=249).
-                      00190 ; - Retardo_1s:         2 + 1 + 2 + (2 + 4N + 4MN + 4KMN) =  1000047 cm =  1 s.
-                      00191 ;                       (N= 10, M=100 y K=249).
-                      00192 ; - Retardo_500ms:      2 + 1     + (2 + 4N + 4MN + 4KMN) =   500025 cm = 0,5 s.
-                      00193 ;                       (N=  5, M=100 y K=249).
-                      00194 
-                      00195 ;       ===================================================================
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  8
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-                      00196 ;         Del libro "MICROCONTROLADOR PIC16F84. DESARROLLO DE PROYECTOS"
-                      00197 ;         E. Palacios, F. Remiro y L. López.            www.pic16f84a.com
-                      00198 ;         Editorial Ra-Ma.  www.ra-ma.es
-                      00199 ;       ===================================================================
-                      00200 
-                      00201 ;------------------------------------------------------------------
-                      00202 ;       FILE:           -
-                      00203 ;       AUTHOR:         -
-                      00204 ;       COMPANY:        -
-                      00205 ;       DEVICE:         -
-                      00206 ;       CREATED:        mm/dd/yyyy
-                      00207 ;       UPDATED:        mm/dd/yyyy
-                      00208 ;
-                      00209 ;       DESCRIP:
-                      00210 ;------------------------------------------------------------------
-                      00211     CBLOCK
-  00000032            00212         CONT1
-  00000033            00213         CONT2
-  00000034            00214         CONT3
-  00000035            00215         CONT11
-  00000036            00216         CONT22
-  00000037            00217         CONT33
-                      00218     ENDC
-                      00219 
-                      00220 ;********************************************************************
-                      00221 ; Function: RETARDO
-                      00222 ;
-                      00223 ; Input:
-                      00224 ;
-                      00225 ; Output:
-                      00226 ;
-                      00227 ; Stack Requirements:
-                      00228 ;
-                      00229 ; Overview:
-                      00230 ;********************************************************************
-                      00231 ;RETARDO:
-00A7   3001           00232         MOVLW   .1
-00A8   00B5           00233         MOVWF   CONT11
-00A9                  00234 LOOP1:
-00A9   3014           00235         MOVLW   .20
-00AA   00B6           00236         MOVWF   CONT22
-00AB                  00237 LOOP2:
-00AB   30FF           00238         MOVLW   .255
-00AC   00B7           00239         MOVWF   CONT33
-00AD                  00240 LOOP3:
+0092   2???           00046     GOTO    $-1 
 Message[305]: Using default destination of 1 (file).
-00AD   0BB7           00241         DECFSZ  CONT33
-00AE   2???           00242         GOTO    LOOP3
+0093   0BAD           00047     DECFSZ  M
+0094   2???           00048     GOTO    CONT2
 Message[305]: Using default destination of 1 (file).
-00AF   0BB6           00243         DECFSZ  CONT22
-00B0   2???           00244         GOTO    LOOP2
-Message[305]: Using default destination of 1 (file).
-00B1   0BB5           00245         DECFSZ  CONT11
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE  9
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-00B2   2???           00246         GOTO    LOOP1
-00B3   0008           00247         RETURN
-                      00248 
-                      00249 ;********************************************************************
-                      00250 ; Function: RETARDO 10 MILISEGUNDOS
-                      00251 ;
-                      00252 ; Input:
-                      00253 ;
-                      00254 ; Output:
-                      00255 ;
-                      00256 ; Stack Requirements:
-                      00257 ;
-                      00258 ; Overview:
-                      00259 ;********************************************************************
-00B4                  00260 RET_10MS:
-00B4   3001           00261         MOVLW   .1
-00B5   00B2           00262         MOVWF   CONT1
-00B6                  00263 LOOP11:
-00B6   3019           00264         MOVLW   .25
-00B7   00B3           00265         MOVWF   CONT2
-00B8                  00266 LOOP22:
-00B8   30FF           00267         MOVLW   .255
-00B9   00B4           00268         MOVWF   CONT3
-00BA                  00269 LOOP33:
-Message[305]: Using default destination of 1 (file).
-00BA   0BB4           00270         DECFSZ  CONT3
-00BB   2???           00271         GOTO    LOOP33
-Message[305]: Using default destination of 1 (file).
-00BC   0BB3           00272         DECFSZ  CONT2
-00BD   2???           00273         GOTO    LOOP22
-Message[305]: Using default destination of 1 (file).
-00BE   0BB2           00274         DECFSZ  CONT1
-00BF   2???           00275         GOTO    LOOP11
-00C0   0008           00276         RETURN
-                      00277 
-00C1   300A           00278 RETARDO MOVLW   .10
-00C2   00B1           00279         MOVWF   RET3
-00C3   3064           00280 TRES    MOVLW   .100
-00C4   00B0           00281         MOVWF   RET2
-00C5   3064           00282 DOS     MOVLW   .100
-00C6   00AF           00283         MOVWF   RET1
-00C7   0BAF           00284 UNO     DECFSZ  RET1,1
-00C8   2???           00285         GOTO    UNO
-00C9   0BB0           00286         DECFSZ  RET2,1
-00CA   2???           00287         GOTO    DOS
-00CB   0BB1           00288         DECFSZ  RET3,1
-00CC   2???           00289         GOTO    TRES
-00CD   0008           00290         RETURN
-                      00291 
+0095   0BAC           00049     DECFSZ  K
+0096   2???           00050     GOTO    CONT1
+0097   0008           00051  RETURN 
+                      00052 ;------------------------------------------
+                      00053 
+                      00054 
 Warning[205]: Found directive in column 1. (END)
-23F4 3EFF             00103 END
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 10
+20F5 3FFF             00122 END
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  7
 
 
 SYMBOL TABLE
@@ -586,17 +371,17 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 11
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
 BRGH                              00000002
-BUCLE1                            0000001E
-BUCLE2                            00000025
-BUCLE3                            0000002C
-BUCLE4                            00000033
+BUCLE1                            00000020
+BUCLE2                            00000029
+BUCLE3                            00000032
+BUCLE4                            0000003B
 C                                 00000000
 C1CH0                             00000000
 C1CH1                             00000001
@@ -645,7 +430,7 @@ CCPR1L                            00000015
 CCPR2                             0000001B
 CCPR2H                            0000001C
 CCPR2L                            0000001B
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 12
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE  9
 
 
 SYMBOL TABLE
@@ -661,13 +446,12 @@ CKP                               00000004
 CM1CON0                           00000107
 CM2CON0                           00000108
 CM2CON1                           00000109
-CONT1                             00000032
-CONT11                            00000035
-CONT2                             00000033
-CONT22                            00000036
-CONT3                             00000034
-CONT33                            00000037
-CONTEO                            00000005
+CONFIGURACION                     0000004C
+CONT                              00000080
+CONT0                             00000082
+CONT1                             0000008D
+CONT2                             0000008F
+CONTEO                            00000007
 CREN                              00000004
 CSRC                              00000007
 CUENTA                            00000024
@@ -680,7 +464,7 @@ DC1B1                             00000005
 DC2B0                             00000004
 DC2B1                             00000005
 DECENA                            00000026
-DOS                               000000C5
+DOS                               00000075
 D_A                               00000005
 D_NOT_A                           00000005
 ECCPAS                            0000009C
@@ -704,19 +488,19 @@ FERR                              00000002
 FSR                               00000004
 FVREN                             00000000
 GCEN                              00000007
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 13
+GIE                               00000007
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 10
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-GIE                               00000007
 GO                                00000001
 GO_DONE                           00000001
 GO_NOT_DONE                       00000001
-HEX1                              00000050
-HEX2                              00000057
-HEX_BCD                           00000048
+HEX1                              00000061
+HEX2                              00000068
+HEX_BCD                           00000059
 HTS                               00000002
 I2C_DATA                          00000005
 I2C_READ                          00000002
@@ -741,13 +525,9 @@ IRCF0                             00000004
 IRCF1                             00000005
 IRCF2                             00000006
 IRP                               00000007
-LOOP1                             000000A9
-LOOP11                            000000B6
-LOOP2                             000000AB
-LOOP22                            000000B8
-LOOP3                             000000AD
-LOOP33                            000000BA
+K                                 0000002C
 LTS                               00000001
+M                                 0000002D
 MC1OUT                            00000007
 MC2OUT                            00000006
 MSK                               00000093
@@ -759,20 +539,21 @@ MSK4                              00000004
 MSK5                              00000005
 MSK6                              00000006
 MSK7                              00000007
+N                                 0000002E
 NOT_A                             00000005
 NOT_ADDRESS                       00000005
 NOT_BO                            00000000
 NOT_BOR                           00000000
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 14
+NOT_DONE                          00000001
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 11
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-NOT_DONE                          00000001
-NOT_PD                            00000003
-NOT_POR                           00000001
-NOT_RBPU                          00000007
 NOT_RC8                           00000006
 NOT_T1SYNC                        00000002
 NOT_TO                            00000004
@@ -783,6 +564,7 @@ OERR                              00000001
 OPTION_REG                        00000081
 OSCCON                            0000008F
 OSCTUNE                           00000090
+OSC_CONF                          00000047
 OSFIE                             00000007
 OSFIF                             00000007
 OSTS                              00000003
@@ -811,7 +593,7 @@ PORTC                             00000007
 PORTD                             00000008
 PORTE                             00000009
 PR2                               00000092
-PRINCIPAL                         00000003
+PRINCIPAL                         00000004
 PRSEN                             00000007
 PS0                               00000000
 PS1                               00000001
@@ -822,21 +604,16 @@ PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
 PSTRCON                           0000009D
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 15
+PULSR                             00000002
+PULSS                             00000003
+PWM1CON                           0000009B
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 12
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-PULSR                             00000002
-PULSS                             00000003
-PWM1CON                           0000009B
 R                                 00000002
-R1Decima_BucleExterno             0000009D
-R1Decima_BucleExterno2            0000009B
-R1Decima_BucleInterno             0000009F
-R1ms_BucleExterno                 00000087
-R1ms_BucleInterno                 00000089
 RA0                               00000000
 RA1                               00000001
 RA2                               00000002
@@ -881,12 +658,6 @@ RD4                               00000004
 RD5                               00000005
 RD6                               00000006
 RD7                               00000007
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 16
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 RE0                               00000000
 RE1                               00000001
 RE2                               00000002
@@ -895,57 +666,26 @@ READ_WRITE                        00000002
 REG1                              00000020
 REG1AUX                           0000002A
 REG2                              00000021
-REG3                              00000022
-REGH                              00000029
-REGH1                             00000028
-RET1                              0000002F
-RET2                              00000030
-RET3                              00000031
-RETARDO                           000000C1
-RET_10MS                          000000B4
-RP0                               00000005
-RP1                               00000006
-RSEN                              00000001
-RUTINA                            0000001A
-RX9                               00000006
-RX9D                              00000000
-R_ContA                           0000002C
-R_ContB                           0000002D
-R_ContC                           0000002E
-R_NOT_W                           00000002
-R_W                               00000002
-RetardoMicros                     00000073
-Retardo_100micros                 0000006D
-Retardo_100ms                     00000079
-Retardo_10micros                  00000060
-Retardo_10ms                      0000007F
-Retardo_10s                       00000091
-Retardo_1Decima                   0000009A
-Retardo_1ms                       00000085
-Retardo_1s                        00000097
-Retardo_200micros                 0000006A
-Retardo_200ms                     00000077
-Retardo_20micros                  00000072
-Retardo_20ms                      0000007D
-Retardo_20s                       0000008F
-Retardo_2ms                       00000083
-Retardo_2s                        00000095
-Retardo_4micros                   00000066
-Retardo_500micros                 00000067
-Retardo_500ms                     00000099
-Retardo_50micros                  0000006F
-Retardo_50ms                      0000007B
-Retardo_5micros                   00000065
-Retardo_5ms                       00000081
-Retardo_5s                        00000093
-Retardos_ms                       00000086
-Rmicros_Bucle                     00000074
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 17
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 13
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+REG3                              00000022
+REGH                              00000029
+REGH1                             00000028
+RETARDO_1s                        0000007E
+RETARDO_250ms                     0000008B
+RETARDO_500ms                     00000071
+RP0                               00000005
+RP1                               00000006
+RSEN                              00000001
+RUTINA                            0000001C
+RX9                               00000006
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
 S                                 00000003
 SBOREN                            00000004
 SCKP                              00000004
@@ -985,6 +725,12 @@ SYNC                              00000004
 T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 T0SE                              00000004
 T1CKPS0                           00000004
 T1CKPS1                           00000005
@@ -999,12 +745,6 @@ T2CKPS0                           00000000
 T2CKPS1                           00000001
 T2CON                             00000012
 TMR0                              00000001
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 18
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TMR0IE                            00000005
 TMR0IF                            00000002
 TMR1                              0000000E
@@ -1023,7 +763,6 @@ TOUTPS0                           00000003
 TOUTPS1                           00000004
 TOUTPS2                           00000005
 TOUTPS3                           00000006
-TRES                              000000C3
 TRISA                             00000085
 TRISA0                            00000000
 TRISA1                            00000001
@@ -1045,6 +784,12 @@ TRISB7                            00000007
 TRISC                             00000087
 TRISC0                            00000000
 TRISC1                            00000001
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TRISC2                            00000002
 TRISC3                            00000003
 TRISC4                            00000004
@@ -1058,12 +803,6 @@ TRISD2                            00000002
 TRISD3                            00000003
 TRISD4                            00000004
 TRISD5                            00000005
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 19
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TRISD6                            00000006
 TRISD7                            00000007
 TRISE                             00000089
@@ -1091,7 +830,7 @@ ULPWUE                            00000005
 ULPWUIE                           00000002
 ULPWUIF                           00000002
 UNIDAD                            00000025
-UNO                               000000C7
+UNO                               00000073
 VCFG0                             00000004
 VCFG1                             00000005
 VR0                               00000000
@@ -1104,6 +843,12 @@ VROE                              00000006
 VRR                               00000005
 VRSS                              00000004
 W                                 00000000
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 WCOL                              00000007
 WDTCON                            00000105
 WDTPS0                            00000001
@@ -1117,19 +862,17 @@ WPUB2                             00000002
 WPUB3                             00000003
 WPUB4                             00000004
 WPUB5                             00000005
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 20
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 WPUB6                             00000006
 WPUB7                             00000007
 WR                                00000001
 WREN                              00000002
 WRERR                             00000003
 WUE                               00000001
+X                                 00000045
 Z                                 00000002
+_.org_0_0078                      00000078
+_.org_0_0085                      00000085
+_.org_0_0092                      00000092
 _BOR21V                           00003EFF
 _BOR40V                           00003FFF
 _BOR4V_BOR21V                     00003EFF
@@ -1159,6 +902,12 @@ _EXTRC_OSC_NOCLKOUT               00003FFE
 _FCMEN_OFF                        000037FF
 _FCMEN_ON                         00003FFF
 _FOSC_EC                          00003FFB
+MPASM 5.72                       LAB_UNO.ASM   3-15-2017  12:54:21         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _FOSC_EXTRC_CLKOUT                00003FFF
 _FOSC_EXTRC_NOCLKOUT              00003FFE
 _FOSC_HS                          00003FFA
@@ -1176,12 +925,6 @@ _IESO_ON                          00003FFF
 _INTOSC                           00003FFD
 _INTOSCIO                         00003FFC
 _INTRC_OSC_CLKOUT                 00003FFD
-MPASM 5.72                       LAB_UNO.ASM   3-10-2017  19:58:21         PAGE 21
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _INTRC_OSC_NOCLKOUT               00003FFC
 _LP_OSC                           00003FF8
 _LVP_OFF                          00002FFF
@@ -1200,10 +943,9 @@ _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
 _XT_OSC                           00003FF9
 __16F887                          00000001
-configuracion                     0000003B
 
 Errors   :     0
-Warnings :     4 reported,     0 suppressed
-Messages :    14 reported,     0 suppressed
+Warnings :     6 reported,     0 suppressed
+Messages :    19 reported,     0 suppressed
 
 
